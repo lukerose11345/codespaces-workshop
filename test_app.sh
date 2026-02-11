@@ -3,7 +3,7 @@
 
 set -e
 
-APP=./unit_converter
+APP="./unit_converter -q"
 
 fail() {
   echo "Test failed: $1"
@@ -11,7 +11,7 @@ fail() {
 }
 
 # Build the app first
-make build
+make build > /dev/null 2>&1
 
 # Length Conversions
 result=$(echo "cm-to-inch 10" | $APP)
